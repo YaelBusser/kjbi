@@ -1,6 +1,6 @@
 <?php 
-	session_start();
-	require 'bdd.php';
+	session_start(); // J'exécute cette fonction utiliser les fonctions supergobales $_SESSION 
+	require 'bdd.php'; // Ici la fonction require() appelle le fichier bdd.php afin de ne pas exécuter le reste du code s'il y a une erreur avec la connexion de la base de donnée.
 	$requete_user = $bdd -> prepare('SELECT * FROM users WHERE id = ?');
 	$requete_user -> execute(array($_SESSION['id']));
 	$user = $requete_user -> fetch();
